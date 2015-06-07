@@ -1,0 +1,61 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+module:testrunner
+
+GET     /                                       App.Index
+
+# Wenwuhan Begin
+GET           /sharing/list                                                   Sharing.List
+GET           /sharing                                                                Sharing.ListAPI
+GET           /sharing/:id                                                    Sharing.Show
+
+
+# Wenwuhan End
+
+
+
+
+
+# Shaoyu Begin
+
+GET 	/publish								Sharing.Index
+
+Post 	/sharing								Sharing.Publish
+
+GET		/download								Sharing.DownloadUrl	
+
+# Shaoyu End
+
+
+
+# Hebihui Begin
+
+
+
+# Hebihui End
+
+
+
+
+
+# Xiaowei Begin
+
+GET		/account								Account.Index
+POST	/account								Account.Login
+GET		/account/admin							Account.Administration
+
+# Xiaowei End
+
+
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# Catch all
+*       /:controller/:action                    :controller.:action

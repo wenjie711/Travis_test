@@ -1,0 +1,121 @@
+{{set . "title" "Home"}}
+{{template "upload_import.html" .}}
+{{template "header.html" .}}
+<script>
+  $(document).ready(function(){
+    var underwayTplCompiled = _.template($('#sharing').html());
+    $.get("/sharing",function(data,status){
+      $(data.items).each(function(index){
+        var sharingHtml = underwayTplCompiled(this);
+        $('#sharings').append(sharingHtml);
+        //alert("jk");
+      });
+      //alert("数据: " + data.nextPage + " "+ data.items[0].id);
+    });
+
+    $('#nextPage').click(function() {
+      $.get("/sharing",function(data,status){
+      $(data.items).each(function(index){
+        var sharingHtml = underwayTplCompiled(this);
+        $('#sharings').append(sharingHtml);
+        //alert("jk");
+      });
+      //alert("数据: " + data.nextPage + " "+ data.items[0].id);
+    });
+  });
+
+});
+
+
+
+</script>
+<body>
+  <div class="container">
+    <div class="blog-header">
+      <h1 class="blog-title">七牛云存储技术分享平台</h1>
+      <p class="lead blog-description">技术改变世界</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+        <div id="sharings">
+        </div>
+        <nav>
+          <ul class="pager">
+            <li><a id="nextPage">more</a></li>
+          </ul>
+        </nav>
+      </div><!-- /.blog-main -->
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>七牛于2011年创立，致力于提供最适合开发者的数据在线托管、传输加速以及云端处理等服务。区别于国内外其他云存储，七牛自行研发的全分布式架构解决了其他云存储单一数据中心架构可能存在的风险，同时首创双向加速特性对数据上传下载均加速，使得数据访问速度较传统方案平均提升 50%以上。此外，镜像存储、客户端直传、断点续上传、云端富媒体处理等七牛云存储独有的功能也大大提升了开发效率，最大程度减少了服务器资源浪费。</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+          </div><!-- /.blog-sidebar -->
+          </div><!-- /.row -->
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="span6">
+              {{template "flash.html" .}}
+            </div>
+          </div>
+        </div>
+        <script type="txt/template" id="sharing">
+        <div id="share-<%= id %>" class="blog-post">
+          <div class="entry-header">
+            <div class="entry-content">
+              <h2 class="entry-title">
+              <a href="/archives/3515" rel="bookmark"><%= title %>&nbsp;</a>
+              </h2>
+              <div class="entry-meta">
+                <span class="entry-author author vcard">
+                  <a href=""><%= author %></a>
+                </span>
+                <span class="entry-date">
+                  <a href="/archives/3515" title="国内互联网健身市场瞭望&nbsp;" rel="bookmark"><%= createTime %></a>
+                </span>
+                <span class="cat-links">
+                  <span class="entry-utility-prep entry-utility-prep-cat-links">发布在</span> 
+                  <a href="/archives/category/horizon" rel="category tag">视野开拓</a>
+                </span>     
+              </div><!-- .entry-meta -->
+            </div>
+          </div>
+          <div class="entry-content clearfix">
+              <p><%= brief %>
+                <span class="ellipsis">…</span> 
+                <span class="more-link-wrap">
+                  <a href="/archives/3515" class="more-link">
+                    <span>继续阅读…</span>  
+                  </a>
+                </span>
+              </p>
+          </div> <!-- end .entry-content -->
+        </div>
+      </script>
+    {{template "footer.html" .}}

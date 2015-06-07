@@ -1,0 +1,75 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+<style>
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="blog-header">
+      <h1 class="blog-title">七牛云存储技术分享平台</h1>
+      <p class="lead blog-description">技术改变世界</p>
+    </div>
+<!--
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+        <form action="{{url "Account.Login"}}" id="formLogin" method="POST">
+          <p class = "field">
+            <!--{{.flash.error}}-->
+<!--
+          </p>
+          <p class="field">
+            <label>用户名:</label>
+            <input type="text" name="name" size="19" value="{{.flash.username}}" />
+         </p>
+          <p class="field">
+            <label>密码:</label>
+            <input type="password" name="pwd" size="19"/>
+          </p>
+          <p class="field">
+            <label>记住我:</label>
+            <input type="checkbox" name="remember" value="true"/>
+           </p>
+           <p class="buttons">
+            <input type="submit" value="登录" />
+          </p>
+        </form>
+
+        <p>
+          <a href="#">Register New User</a>
+        </p>
+
+      </div><!-- /.blog-main -->
+<!--
+        <div class="container">
+          <div class="row">
+            <div class="span6">
+              {{template "flash.html" .}}
+            </div>
+          </div>
+        </div>
+-->    
+
+
+<form class="form-signin" action="{{url "Account.Login"}}" id="formLogin" method="POST">
+        <h4 class="form-signin-heading">请登录</h4>
+        <p class = "field">
+          {{.flash.error}}
+        </p>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" value="{{.flash.username}}" placeholder="用户名" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="密码" required="">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="remember" value="true"> 记住我
+          </label>
+        </div>
+        <button class="btn btn-primary" type="submit">登录</button>
+        <!--button class="btn btn-success" type="submit">注册</button-->
+      </form>
+</div>
+        {{template "footer.html" .}}

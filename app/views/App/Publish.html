@@ -1,0 +1,91 @@
+{{set . "title" "发布页"}}
+{{template "upload_import.html" .}}
+{{template "header.html" .}}
+<script>
+	$((function(){
+		$(".blog-nav-item").removeClass('active');
+		$(".blog-nav-item:eq(1)").addClass('active');
+	})())
+</script>
+<div class="container ">
+	<br>
+	<div class="wrapper wrapper-content animated fadeIn panel panel-default col-lg-8">
+		<div class="row panel-body">
+			<div class="col-lg-12">
+				<form id="sharingForm">
+					<div class="row">
+						<div class="form-group col-lg-8">
+							<label for="title">标题</label>
+							<input type="text" class="form-control" id="title" name="title" placeholder="文章标题" required="required">
+						</div>
+						<div class="form-group col-lg-4">
+							<label for="category">分类</label>
+							<select class="form-control" id="category" name="category" placeholder="请选择分类" required="required">
+								<option value="0">（无分类）</option>
+								<option value="1">技术分析</option>
+								<option value="2">生活交流</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-lg-12">
+							<label for="content">内容</label>
+							<textarea rows="10" class="form-control" id="content" name="content" placeholder="文章内容"  required="required"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-lg-12">
+							<label >上传文件</label>
+							<div class="dropzone dz-clickable"  id="container">
+								<div class="dz-default dz-message text-center"  id="pickfiles">
+									<span><b>单击</b>选择文件或<b>拖拽文件</b>至此</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div style="display:none" id="success" class="col-lg-12">
+							<div class="alert-success">
+								队列全部文件处理完毕
+							</div>
+						</div>
+					</div>
+					<button id="cancleBtn" class="btn btn-default pull-right">取消</button>
+					<button id="submitBtn" class="btn btn-primary pull-right">提交</button>
+				</form>
+			</div>
+		</div>
+		<script>
+			$('#sharingForm').submit(function(event) {
+				/* Act on the event */
+				$.post('/sharing', $('#sharingForm').serialize(), function(data) {
+					/*optional stuff to do after success */
+					if(data.ok=="success"){
+						alert("发布成功");
+						$('input').val('');
+						$('textarea').val('');
+						$('#tbody#fsUploadProgress').each().remove();
+					}else{
+						alert("发布失败");
+					}
+				});
+				return false;
+			});
+		</script>
+	</div>
+	<div class="wrapper wrapper-content animated fadeIn panel panel-default col-lg-3 col-lg-offset-1">
+		<div class="panel-heading">附件列表</div>
+		<table class="table table-striped table-hover text-left" style="display:none">
+			<thead>
+				<tr>
+					<th class="col-lg-4"></th>
+					<th class="col-lg-2" style="display:none"></th>
+					<th class="col-lg-6"></th>
+				</tr>
+			</thead>
+			<tbody id="fsUploadProgress">
+			</tbody>
+		</table>
+	</div>
+</div>
+{{template "footer.html" .}}

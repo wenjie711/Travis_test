@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{{append . "moreStyles" "css/blog.css"}}
+{{append . "moreScripts" "js/underscore-min.js"}}
+
+
+<html>
+  <head>
+    <title>{{.title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+    <!-- 下面是bootcss提供的cdn加速基础css和js -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- 下面是本地的css和js文件添加代码 -->
+    {{range .moreStyles}}
+      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+    {{end}}
+
+  </head>
+<body style="font-family: Arial,'微软雅黑';"> 
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="/">首页</a>
+          <a class="blog-nav-item" href="/publish">七牛官网</a>
+          <a class="blog-nav-item" href="http://v3.bootcss.com/examples/blog/#">关于</a>
+        </nav>
+      </div>
+    </div>

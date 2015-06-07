@@ -1,0 +1,112 @@
+{{ set . "title" "七牛周分享-登录" }}
+{{ append . "moreStyles" "css/login_content.css"}}
+{{ template "header.html" . }}
+<body ng-app="app"ng-controller="AppController"class="coding-center coding ng-scope random-background account-background"cg-random-background=""ng-class="{'account-background': isAccount}"style="margin: 0px; padding: 0px; height: 100%; ">
+    <div cg-flash=""><div class="cg flash center"ng-class="{active: messages &amp;&amp; messages.length>0}"id="global-flash">
+        <i class="ui close icon"ng-click="removeAll(message);"></i>
+        <div class="outer">
+            <!-- ngRepeat:message in messages.slice(0, limit) -->
+        </div>
+        <!-- ngIf:messages.length>limit -->
+    </div></div>
+    <!-- ngInclude:'app/layout/top_menu.html' -->
+    <div class="ui fixed transparent main top menu ng-scope"ng-dblclick="scrollToTop()"ng-include="'app/layout/top_menu.html'"id="top-menu">
+        
+        <!-- ngInclude:'app/layout/top_menu/' + (top_menu_tpl ? top_menu_tpl:'title') + '.html' --><div class="header ng-scope"ng-include="'app/layout/top_menu/' + (top_menu_tpl ? top_menu_tpl : 'title') + '.html'"><span class="top-menu-title ng-binding ng-scope"ng-controller="TopMenuTitleController"ng-bind="top_menu_title">七牛周分享-用户登录</span></div><!-- ngIf:USER -->
+        <!-- ngIf:USER === false --><div class="right menu ng-scope"ng-if="USER === false">
+        <a class="ui coding green login button"cg-auto-refresh-href="/login"href="/login">登录</a>
+        <a class="ui coding white register button"cg-auto-refresh-href="/register"href="/register">注册</a>
+        </div><!-- end ngIf:USER === false --></div>
+        <!-- ngInclude:!!current_app ? 'app/'+current_app+'/context_menu.html':'' -->
+        <!-- ngView:--><div class="wrapper ng-scope"ng-view=""><div class="account-box login ng-scope"ng-class="{'with-captcha': show_captcha, 'oauth': oauth.via}"bindonce="oauth">
+        <iframe src="/login"name="sink"style="display:none"></iframe>
+        <div class="oauth-info">
+            <div class="oauth-email github ellipsis"bo-text="oauth.email"bo-title="oauth.via"></div>
+            <div class="oauth-link">
+                <span>
+                    <i class="url icon"></i>
+                </span>
+            </div>
+        </div>
+        <form action="/login"target="sink"method="post"ng-submit="dologin(form)"form-autofill-fix=""class="ng-pristine ng-invalid ng-invalid-required">
+            <div class="ui form">
+                <div class="field">
+                    <div class="ui left labeled icon large input fluid">
+                        <input id="email"name="email"type="text"cg-auto-focus=""ng-model="form.email"placeholder="电子邮箱 / 个性后缀"required=""class="ng-isolate-scope ng-pristine ng-invalid ng-invalid-required">
+                        <i class="mail icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left labeled icon large input fluid">
+                        <input id="password"name="password"type="password"style="display: initial"ng-model="form.password"placeholder="密码"required=""cg-enter="dologin(form);"class="ng-pristine ng-invalid ng-invalid-required">
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+                <div class="field captcha ng-hide"ng-show="show_captcha">
+                    <div class="ui left labeled icon large input captcha">
+                        <input id="captcha"name="captcha"type="text"placeholder="验证码"ng-model="form.j_captcha"cg-enter="dologin(form);"class="ng-pristine ng-valid">
+                        <i class="shield icon"></i>
+                    </div>
+                    <img class="captcha"ng-src="https://coding.net/api/getCaptcha"ng-click="refreshCaptcha()"src="https://coding.net/api/getCaptcha">
+                </div>
+                <div class="field words">
+                    <div class="ui checkbox">
+                        <input type="checkbox"id="form.remember_me"ng-model="form.remember_me"class="ng-pristine ng-valid">
+                        <label class="remember"for="form.remember_me">记住我</label>
+                    </div>
+                    <a class="forget-password gray"href="/resetPassword">忘记密码?</a>
+                </div>
+                <div class="field">
+                    <button type="submit"class="ui coding large green gray button fluid disabled"ng-class="{disabled: !(form.email &amp;&amp; form.password) }">
+                    <!-- ngIf:!logining --><span ng-if="!logining"bo-switch="loginType()"class="ng-scope">
+                    <!-- boSwitchWhen:normal --><span bo-switch-when="normal"class="ng-scope">登 录</span>
+                    <!-- boSwitchWhen:oauth -->
+                    </span><!-- end ngIf:!logining -->
+                    <!-- ngIf:logining -->
+                    </button>
+                    <input type="submit"style="display: none">
+                </div>
+            </div>
+        </form>
+</div>
+
+<div class="ui small modal login ng-scope"id="login-modal">
+    <i class="close icon"></i>
+    <div class="header">
+        登录
+    </div>
+    <div class="content"style="border-bottom-left-radius: 5px;border-bottom-right-radius: 5px">
+        <div class="ui small form"ng-class="{'error': receiver_not_found}">
+            <div class="field"ng-class="{'error': msg_empty}">
+                <div class="ui form">
+                    <div class="field">
+                        <div class="ui left labeled icon medium input">
+                            <input name="email"type="text"ng-model="form.email"placeholder="电子邮箱 / 个性后缀"class="ng-pristine ng-valid">
+                            <i class="mail icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left labeled icon medium input">
+                            <input name="password"type="password"style="display: initial"ng-model="form.password"placeholder="密码"cg-enter="dologin(form)"class="ng-pristine ng-valid">
+                            <i class="lock icon"></i>
+                        </div>
+                    </div>
+                    <!-- ngIf:show_captcha -->
+                    <div>
+                        <div class="ui checkbox">
+                            <input type="checkbox"id="form.remember_me"ng-model="form.remember_me"style="display:none"class="ng-pristine ng-valid">
+                            <label class="remember"for="form.remember_me">记住我</label>
+                        </div>
+                        <div class="forget">
+                            <a href="/resetPassword"target="_blank">忘记密码?</a>
+                        </div>
+                    </div>
+                    <div style="margin:0 auto;display:table">
+                        <input type="submit"value="登 录"class="ui coding medium dark gray button"ng-click="dologin(form)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+{{ template "footer.html" . }}

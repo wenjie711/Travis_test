@@ -1,0 +1,107 @@
+{{set . "title" "Home"}}
+{{template "upload_import.html" .}}
+{{template "header.html" .}}
+<body>
+  <div class="container">
+    <div class="blog-header">
+      <h1 class="blog-title">七牛云存储技术分享平台</h1>
+      <p class="lead blog-description">技术改变世界</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+        <div class="blog-post">
+          
+          <div class="entry-content clearfix">
+            <h2 id="activity-name"><span style="color: #000000;"><a style="color: #000000;" href="http://blog.qiniu.com/wp-content/uploads/2015/05/微信文章配图.jpg"><img class="alignnone size-full wp-image-3543" src="http://7j1ynv.com5.z0.glb.qiniucdn.com/wp-content/uploads/2015/05/微信文章配图.jpg" alt="微信文章配图" width="90%" height="90%"></a></span></h2>
+            <div><span style="color: #000000;">作为移动互联网行业最为热门的创业领域，在过去的几年中，移动社交类App和UGC类App大量涌现，因此在尽力确保产品定位差异化的同时，打造健康的社交生态也成为这些App能得以获得长期发展的关键。然而，由于这类App每天生成的图片信息量通常很大，并且有大量的色情图片混杂其中，所以高效准确地鉴别和剔除这些淫秽色情信息成为一项十分艰巨的任务。</span></div>
+            <div id="js_content">
+              <p>&nbsp;</p>
+              <h3><strong><span style="color: #000000;">传统鉴黄方法及其局限性</span></strong></h3>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">常用的鉴黄方式有3种：公众举报、人工鉴黄和使用基于开源图像识别算法的鉴黄工具。这些方法虽然能让网络环境的健康程度得到部分缓解，但仍存在一些局限性。</span></p>
+              <ul>
+                <li><span style="color: #000000;">公众举报。目前很多带有社交属性的网站和App，都会为用户开通了举报功能。用户在浏览内容中发现黄色图片等淫秽信息，都能通过点击相应按钮或者链接的形式，向网站管理员举报，并由网站管理员完成删图或者封号等后续处理。但从目前实践情况来看，这个方式收效甚微，用户的参与度并不高，而且举报数量较少。</span></li>
+              </ul>
+              <ul>
+                <li><span style="color: #000000;">人工鉴黄。随着鉴黄重要性的日益凸显，很多企业都设有类似“鉴黄师”这样的岗位，以最快的速度浏览、审核用户上传的图片，并及时处理所发现的色情信息。但随着色情信息量日益增多并且传播方式愈发隐蔽，人工鉴黄的速度和质量都在逐渐降低，遗漏和判断失误在所难免。而且由于黄色图片强大的视觉冲击，鉴黄师们很难连续工作几个小时，通常工作2到3个小时之后，就要换成其他工作内容或者短暂休息一下缓解一下状态和心情。</span></li>
+              </ul>
+              <ul>
+                <li><span style="color: #000000;">使用基于开源图像识别算法的鉴黄工具。由于人工鉴黄存在诸多局限性，所以有越来越多的企业开始尝试结合一些开源图像识别算法来自己开发相应的鉴黄工具。但这其中存在着很高的技术门槛：首先图像识别、机器学习、图标分类标定等方面的算法非常复杂，要结合这些算法做研发和优化，需要很精专的技术人员，而绝大数企业都不具备这样的人才资源；其次，即便这样的鉴黄工具能够开发成功，但识别过程中所需的样本图却很难收集，需要很长时间的积累，并且积累过程中需要不停地修正图像识别模型，以提高准确度。</span></li>
+              </ul>
+              <p>&nbsp;</p>
+              <h3><strong><span style="color: #000000;">七牛云国内首推图片鉴黄服务</span></strong></h3>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">基于此，七牛云携手专注于图像识别技术的图普科技推出了图片鉴黄服务（nrop），帮助七牛用户有效判断保存在七牛云的图片是属于色情、性感还是正常，并给出判断的分数，分数越高判断为该类别的概率越大。该服务是通过基于深度学习的人工智能技术来实现图像识别的，从而用计算机替代人工对黄色图片的审核服务，有相关鉴定需求的企业直接接入该系统即可实现图片的自动检测。</span></p>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">据了解，七牛云是国内第一家提供此项服务的云服务提供商，意在通过高效准确的自动化鉴黄服务，降低企业使用鉴黄服务的技术门槛，从而很大程度上帮助企业减少相关人力成本的投入。</span></p>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">与以往的人工鉴黄方式相比，七牛本次推出的图片鉴黄服务有以下几个很明显的优势。</span></p>
+              <p><span style="color: #000000;">1. 成本降低的同时，效率大大提高。鉴黄师平均每天审核处理的图片数只能在1万张左右，每台机器一天可以审1000万张图片。</span></p>
+              <p><span style="color: #000000;">2. 准确率提高，误判少。根据第三方服务提供商评测的结果显示，七牛鉴黄服务的准确度超过99.5%，可以替代90%以上的人工审核，并且机器有强大的自学习能力，可以通过不断学习提高鉴别的准确度。此外，鉴黄服务每周会更新升级一次样本库，以便更好地鉴别越来越隐蔽的色情图片。</span></p>
+              <p><span style="color: #000000;">3. 全时工作。由于工作内容的特殊性，人工鉴黄很难长时间连续工作，而机器鉴黄可以做到7*24小时不眠不休。</span></p>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">而与前面讲述的企业使用自研发的鉴黄工具相比，图片样本缺乏和准确度需要长期训练才能达到可用标准等问题，在七牛云提供的鉴黄服务中完全不存在。因为在正式接入七牛平台之前，图普科技的鉴黄服务已成功接入迅雷、酷狗和比邻网等多个平台，样本库中的图片样本已积累过亿，而且每周会对样本库做一次版本升级，将新识别出的样本加入其中。此外，经过大量的实践很好地训练了图像识别模型，这使得图普科技的图片鉴黄服务的准确度能达到上文中所提到的99.5%。接入七牛之后，鉴黄服务将以公有云服务的形式供七牛平台上的所有用户使用，这样图片样本将在很短时间内大量积累，准确度也会同时得到更快的提升。</span></p>
+              <p><span style="color: #000000;"><a style="color: #000000;" href="http://blog.qiniu.com/wp-content/uploads/2015/05/8F1A8A2A-CACB-4F6E-B377-DB3DDC291289.jpg"><img class="alignnone size-full wp-image-3545" src="http://7j1ynv.com5.z0.glb.qiniucdn.com/wp-content/uploads/2015/05/8F1A8A2A-CACB-4F6E-B377-DB3DDC291289.jpg" alt="8F1A8A2A-CACB-4F6E-B377-DB3DDC291289" width="640" height="929"></a></span></p>
+              <h3><strong><span style="color: #000000;">开放第三方数据处理服务，打造完整的数据生态</span></strong></h3>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">几年来，七牛云一直在全力打造高效稳定的云服务平台，并基于此提供了一站式数据管理服务，能有效地帮助开发者提高开发效率、优化产品体验和降低业务风险，使用户缩短了产品从想法到上线的距离。目前，七牛云平台上已有数十万企业和开发者用户，日均上传文件量为5亿，独立IP覆盖国内50%以上的网民。所服务的企业中不乏一些重量级和明星企业，如新型创业中的美图、Camera360、穷游、豌豆荚、陌陌、唱吧等，也有传统企业中的顺丰、PPTV、步步高、OPPO、海康威视、平安科技等。</span></p>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">在移动互联的时代下，七牛认为从数据的产生、传输、托管，到数据处理以及分发，在数据全生命周期上的每一个节点，都可以通过云服务的技术和产品，加以支持。因此，七牛致力于成为为用户提供完整解决方案的海量数据管理平台，除了基础的数据托管、加速以及基本处理，也逐步支持各类围绕数据的第三方服务的接入，或用户自定义的数据服务开发，以形成围绕数据管理展开的生态体系。本次推出的图片鉴黄服务是七牛云平台上推出的首个第三方数据处理服务，后续会联合更多的第三方开发者接入七牛云平台，打造更为完整的数据管理生态。通过一段时间的内测，七牛小伙伴Same和小恩爱已在使用图片鉴黄服务，节省了90%的人力成本。</span></p>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">目前，七牛图片鉴黄服务已正式上线。即日起至2015年6月30日，用户均可参与我们的“七牛用户关爱计划之——鉴黄服务免费用”活动，申请免费使用本服务，免费使用期为2015年6月至8月，每月免费额度上限为60万次（即当月鉴黄服务账单可免1500元），超出部分按85折计费。免费使用期结束后，用户还可以享受三个月（9月-11月）的鉴黄服务85折优惠。</span></p>
+              <p>&nbsp;</p>
+              <h3><span style="color: #3366ff;"><strong><a style="color: #3366ff;" href="https://hd.qiniu.com/nrop2015/?utm_campaign=nrop2015&amp;utm_source=blog&amp;utm_medium=advposition&amp;utm_content=png">点击这里参加活动</a></strong></span></h3>
+              <p>&nbsp;</p>
+              <p><span style="color: #000000;">并且为了进一步地丰富和完善数据管理生态体系，七牛将于6月15日推出小广告过滤功能，为七牛小伙伴们提供更多贴心选择，还广大网友一片清新宁静。</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- /.blog-post -->
+        <nav>
+          <ul class="pager">
+            <li><a href="#">上一页</a></li>
+            <li><a href="#">下一页</a></li>
+          </ul>
+        </nav>
+        </div><!-- /.blog-main -->
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>七牛于2011年创立，致力于提供最适合开发者的数据在线托管、传输加速以及云端处理等服务。区别于国内外其他云存储，七牛自行研发的全分布式架构解决了其他云存储单一数据中心架构可能存在的风险，同时首创双向加速特性对数据上传下载均加速，使得数据访问速度较传统方案平均提升 50%以上。此外，镜像存储、客户端直传、断点续上传、云端富媒体处理等七牛云存储独有的功能也大大提升了开发效率，最大程度减少了服务器资源浪费。</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+          </div><!-- /.blog-sidebar -->
+          </div><!-- /.row -->
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="span6">
+              {{template "flash.html" .}}
+            </div>
+          </div>
+        </div>
+        {{template "footer.html" .}}
