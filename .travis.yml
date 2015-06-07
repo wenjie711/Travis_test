@@ -1,0 +1,13 @@
+language: go
+go:
+  - 1.4.2
+install:
+  - export PATH=$PATH:$HOME/gopath/bin
+  - go get -v github.com/revel/revel/...
+  - go get -v github.com/revel/cmd/revel
+
+script:
+  - go test github.com/revel/revel
+
+  # Build & run the sample apps
+  - revel test github.com/Travis_test
