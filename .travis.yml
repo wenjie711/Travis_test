@@ -10,4 +10,4 @@ script:
   - go test github.com/revel/revel
 
   # Build & run the sample apps
-  - revel test github.com/Travis_test
+  - revel test github.com/wenjie711/Travis_test
